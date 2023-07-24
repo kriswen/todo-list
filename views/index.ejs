@@ -1,0 +1,49 @@
+<!--header for nav-->
+<%- include("partials/header.ejs") %>
+
+<!--- main content-->
+<div class="container">
+    <div class="nav">
+        <a class="nav-item" href="/"><i class="fa fa-calendar"></i>Today</a>
+        <a class="nav-item" href="/work"><i class="fa fa-briefcase"></i>Work</a>
+    </div>
+    <div class="title">
+        <% if(locals.subjectHeadline) {%>
+            <h1><%= subjectHeadline %></h1>
+        <% } %>
+    </div>
+    <!-- display todo list-->
+    <div id="myTodoList" class="">
+        <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+            <div class="list-group">
+            <% if(locals.selectedArray) {%>
+                <% selectedArray.forEach(function(selectedArray){ %>
+                <label class="list-group-item d-flex gap-3">
+                    <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
+                    <span class="strikethrough">
+                    <strong><%= selectedArray%></strong>
+                    </span>
+                </label>
+                <%})%>
+            <% } %>
+            <label class="list-group-item d-flex gap-3 bg-body-tertiary">
+                <input class="form-check-input form-check-input-placeholder bg-body-tertiary flex-shrink-0 pe-none" disabled="" type="checkbox" value="" style="font-size: 1.375em;">
+                <span class="pt-1 form-checked-content">
+                <span contenteditable="true" class="w-100">
+                    <div id="myInputForm" class="">
+                        <form action="/submit" method="POST">
+                            <input id="addTaskBox" type="text" name="newToDo" placeholder="add new item">
+                            <input id="addTaskButton" type="submit" value="+">
+                        </form>
+                    </div>
+                </span>
+                </span>
+            </label>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <!--footer-->
+        <%- include("partials/footer.ejs") %>
+    </div>
+</div>

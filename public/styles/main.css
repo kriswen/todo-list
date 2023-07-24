@@ -1,0 +1,45 @@
+
+body {
+  font-family: "Share Tech Mono", monospace;
+  height: 100vh;
+  background-color: lightcyan;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+.nav {
+    gap: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-item {
+  padding: 5px 10px;
+  color: black;
+
+}
+
+.form-check-input:checked + span.strikethrough{
+  text-decoration: line-through;
+}
+
+#addTaskBox {
+  width: 300px;
+  height: 40px;
+  border: none;
+  padding: 3px 5px;
+}
+
+#addTaskButton {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: lightpink;
+  font-size: 17px;
+  border: none;
+  color: red;
+}
